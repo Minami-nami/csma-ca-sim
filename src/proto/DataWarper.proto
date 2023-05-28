@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+message DataWarper{
+    enum frameType {
+        dataFrame = 0;
+        ackFrame = 1;
+        announceFrame = 2;
+        conflictFrame = 3;
+    }
+    frameType type = 1;
+    header header = 2;
+    
+    oneof body {
+        dataFrameBody dataFrameBody = 3;
+        ackFrameBody ackFrameBody = 4;
+        announceFrameBody announceFrameBody = 5;
+        conflictFrameBody conflictFrameBody = 6;
+    }
+}
+
+message header {
+    uint32 destMac = 1;
+    uint32 srcMac = 2;
+}
+
+message dataFrameBody {
+    uint32 timeLast = 1;
+    uint32 length = 2;
+    bytes data = 3;
+}
+
+message ackFrameBody {
+
+}
+
+message announceFrameBody {
+    uint32 nodeSend = 1;
+    uint32 sendTime = 2;
+}
+
+message conflictFrameBody {
+    uint32 nodeSend1 = 1;
+    uint32 nodeSend2 = 2;
+}
