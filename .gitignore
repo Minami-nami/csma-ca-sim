@@ -1,0 +1,9 @@
+# Xmake cache
+.xmake/
+build/
+src/DataWarper.pb.*
+
+# MacOS Cache
+.DS_Store
+
+
