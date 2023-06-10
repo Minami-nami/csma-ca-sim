@@ -1,6 +1,8 @@
 #pragma once
 #include "NodeInfo.h"
+#include "qdatetime.h"
 #include <list>
+#include <queue>
 #include <shared_mutex>
 
 class NodeStatus {
@@ -17,13 +19,16 @@ public:
     NodeInfo            &addNode(NodeInfo &&node);
     void                 removeNode(mac_t mac_address);
     NodeInfo            &getNode(mac_t mac_address);
-    bool                 isConflicting(mac_t mac_address_src, mac_t &mac_conflict);
-    std::list<NodeInfo> &getNodes() noexcept {
-        shared_lock_t lock(mutex_);
-        return nodes_;
-    }
+    bool                 isConflicting(mac_t mac_address_src, mac_t &mac_conflict, bool &send);
+    std::list<NodeInfo> &getNodes() noexcept;
+
+    void addLastSend(QTime lastsend, mac_t lastmac);
 
 private:
-    std::list<NodeInfo> nodes_;
-    shared_mutex_t      mutex_;
+    std::list<NodeInfo>                       nodes_;
+    shared_mutex_t                            mutex_;
+    QTime                                     lastsend_;
+    mac_t                                     lastmac_;
+    shared_mutex_t                            list_mutex_;
+    std::list<std::tuple<QTime, mac_t, bool>> lastsend_list_;
 };

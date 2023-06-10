@@ -1,0 +1,750 @@
+@startuml myDiagram
+
+
+
+
+
+/' Objects '/
+
+class DataWarperPROTOBUF_FINAL {
+	+DataWarper()
+	+DataWarper(const DataWarper& from)
+	+DataWarper(DataWarper&& from)
+	#DataWarper(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+	+~DataWarper()
+	-_internal_type() : ::DataWarper_frameType {query}
+	+type() : ::DataWarper_frameType {query}
+	+GetMetadata() : ::PROTOBUF_NAMESPACE_ID::Metadata {query}
+	-_oneof_case_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+_InternalSerialize(::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) : ::PROTOBUF_NAMESPACE_ID::uint8* {query}
+	-_internal_mutable_ackframebody() : ::ackFrameBody*
+	+mutable_ackframebody() : ::ackFrameBody*
+	+release_ackframebody() : ::ackFrameBody*
+	+unsafe_arena_release_ackframebody() : ::ackFrameBody*
+	-_internal_mutable_announceframebody() : ::announceFrameBody*
+	+mutable_announceframebody() : ::announceFrameBody*
+	+release_announceframebody() : ::announceFrameBody*
+	+unsafe_arena_release_announceframebody() : ::announceFrameBody*
+	-_internal_mutable_conflictframebody() : ::conflictFrameBody*
+	+mutable_conflictframebody() : ::conflictFrameBody*
+	+release_conflictframebody() : ::conflictFrameBody*
+	+unsafe_arena_release_conflictframebody() : ::conflictFrameBody*
+	-_internal_mutable_dataframebody() : ::dataFrameBody*
+	+mutable_dataframebody() : ::dataFrameBody*
+	+release_dataframebody() : ::dataFrameBody*
+	+unsafe_arena_release_dataframebody() : ::dataFrameBody*
+	-_internal_mutable_header() : ::header*
+	-header_ : ::header*
+	+mutable_header() : ::header*
+	+release_header() : ::header*
+	+unsafe_arena_release_header() : ::header*
+	-body_ : BodyUnion
+	+{static} default_instance() : DataWarper&
+	+operator=(const DataWarper& from) : DataWarper&
+	+operator=(DataWarper&& from) : DataWarper&
+	+New() : DataWarper* {query}
+	+New(::PROTOBUF_NAMESPACE_ID::Arena* arena) : DataWarper* {query}
+	+{static} internal_default_instance() : DataWarper*
+	+Clear() : PROTOBUF_ATTRIBUTE_REINITIALIZES void
+	+IsInitialized() : bool {query}
+	-_internal_has_ackframebody() : bool {query}
+	-_internal_has_announceframebody() : bool {query}
+	-_internal_has_conflictframebody() : bool {query}
+	-_internal_has_dataframebody() : bool {query}
+	-_internal_has_header() : bool {query}
+	+{static} frameType_IsValid(int value) : bool
+	+{static} frameType_Parse(const std::string& name, frameType* value) : bool
+	+has_ackframebody() : bool {query}
+	+has_announceframebody() : bool {query}
+	-has_body() : bool {query}
+	+has_conflictframebody() : bool {query}
+	+has_dataframebody() : bool {query}
+	+has_header() : bool {query}
+	+_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) : char*
+	+{static} GetDescriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} descriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} frameType_descriptor() : const::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+	+{static} GetReflection() : const::PROTOBUF_NAMESPACE_ID::Reflection*
+	-_internal_ackframebody() : const::ackFrameBody& {query}
+	+ackframebody() : const::ackFrameBody& {query}
+	-_internal_announceframebody() : const::announceFrameBody& {query}
+	+announceframebody() : const::announceFrameBody& {query}
+	-_internal_conflictframebody() : const::conflictFrameBody& {query}
+	+conflictframebody() : const::conflictFrameBody& {query}
+	-_internal_dataframebody() : const::dataFrameBody& {query}
+	+dataframebody() : const::dataFrameBody& {query}
+	-_internal_header() : const::header& {query}
+	+header() : const::header& {query}
+	- : friend struct::TableStruct_DataWarper_2eproto
+	+GetCachedSize() : int {query}
+	+body_case() : int {query}
+	-type_ : int
+	-_cached_size_ : mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize
+	+ByteSizeLong() : size_t {query}
+	+{static} ackFrame : static constexpr frameType
+	+{static} announceFrame : static constexpr frameType
+	+{static} conflictFrame : static constexpr frameType
+	+{static} dataFrame : static constexpr frameType
+	+{static} frameType_MAX : static constexpr frameType
+	+{static} frameType_MIN : static constexpr frameType
+	+{static} frameType_ARRAYSIZE : static constexpr int
+	+{static} kIndexInFileMessages : static constexpr int
+	-GetMetadataStatic() : static::PROTOBUF_NAMESPACE_ID::Metadata
+	-FullMessageName() : static::PROTOBUF_NAMESPACE_ID::StringPiece
+	+{static} frameType_Name(T enum_t_value) : std::string&
+	-{static} ArenaDtor(void* object) : void
+	+CopyFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+CopyFrom(const DataWarper& from) : void
+	+{static} InitAsDefaultInstance() : void
+	-InternalSwap(DataWarper* other) : void
+	+MergeFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+MergeFrom(const DataWarper& from) : void
+	-RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) : void
+	-SetCachedSize(int size) : void {query}
+	-SharedCtor() : void
+	-SharedDtor() : void
+	+Swap(DataWarper* other) : void
+	+UnsafeArenaSwap(DataWarper* other) : void
+	-_internal_set_type(::DataWarper_frameType value) : void
+	+clear_ackframebody() : void
+	+clear_announceframebody() : void
+	+clear_body() : void
+	+clear_conflictframebody() : void
+	+clear_dataframebody() : void
+	-clear_has_body() : void
+	+clear_header() : void
+	+clear_type() : void
+	+set_allocated_ackframebody(::ackFrameBody* ackframebody) : void
+	+set_allocated_announceframebody(::announceFrameBody* announceframebody) : void
+	+set_allocated_conflictframebody(::conflictFrameBody* conflictframebody) : void
+	+set_allocated_dataframebody(::dataFrameBody* dataframebody) : void
+	+set_allocated_header(::header* header) : void
+	-set_has_ackframebody() : void
+	-set_has_announceframebody() : void
+	-set_has_conflictframebody() : void
+	-set_has_dataframebody() : void
+	+set_type(::DataWarper_frameType value) : void
+	+swap(DataWarper& a, DataWarper& b) : void
+	+unsafe_arena_set_allocated_ackframebody(::ackFrameBody* ackframebody) : void
+	+unsafe_arena_set_allocated_announceframebody(::announceFrameBody* announceframebody) : void
+	+unsafe_arena_set_allocated_conflictframebody(::conflictFrameBody* conflictframebody) : void
+	+unsafe_arena_set_allocated_dataframebody(::dataFrameBody* dataframebody) : void
+	+unsafe_arena_set_allocated_header(::header* header) : void
+}
+
+
+class ListenThread_AP {
+	+ListenThread_AP(Window_AP& window, uint16_t port, address ip, QObject* parent)
+	+~ListenThread_AP()
+	-status_ : NodeStatus
+	-window_ : Window_AP&
+	+getListenFlag() : bool
+	-listen_flag_ : bool
+	-io_context_ : io_context
+	-listen_mutex_ : shared_mutex
+	-log_mutex_ : shared_mutex
+	-status_mutex_ : shared_mutex
+	#messageBoxSignal(StandardButton (* ) ( QWidget*, const QString&, const QString&, QMessageBox::StandardButtons, QMessageBox::StandardButton ) func, QWidget*, const QString &, const QString &, QMessageBox::StandardButtons, QMessageBox::StandardButton) : signals : void
+	-receive_threads_ : std::map<endpoint_t, ReceiveThread_AP*>
+	-acceptor_ : unique_ptr<acceptor_t, del_t>
+	#acceptHandler(const boost::system::error_code& ec, shared_ptr<socket_t> socket_server) : void
+	#appendLogSignal(const QString &) : void
+	#run() : void
+	+setListenFlag(bool flag) : void
+	#startAccept() : void
+	+stop() : void
+}
+
+
+class NodeInfo {
+	+NodeInfo(byte mac_address, address ip_address, uint16_t port, shared_ptr<boost::asio::ip::tcp::socket> socket)
+	+NodeInfo(NodeInfo&& node)
+	+NodeInfo(const NodeInfo& node)
+	+operator=(NodeInfo&& node) : NodeInfo&
+	+operator=(const NodeInfo& node) : NodeInfo&
+	+getTime() : QTime
+	+time_ : QTime
+	+ip_address_ : address
+	+isSend() : bool
+	+is_send_ : bool
+	+mac_address_ : byte
+	+getIP() : ip_t
+	+getMac() : mac_t
+	+getPort() : port_t
+	-mutex_ : shared_mutex
+	+port_ : uint16_t
+	+setIP(address ip_address) : void
+	+setMac(byte mac_address) : void
+	+setPort(uint16_t port) : void
+	+setSend(bool is_send) : void
+	+setTime(QTime time) : void
+	+socket_ : weak_ptr<boost::asio::ip::tcp::socket>
+}
+
+
+class NodeStatus {
+	+NodeStatus()
+	+addNode(NodeInfo&& node) : NodeInfo&
+	+getNode(mac_t mac_address) : NodeInfo&
+	-lastsend_ : QTime
+	+isConflicting(mac_t mac_address_src, mac_t mac_conflict, bool& send) : bool
+	-lastmac_ : mac_t
+	-list_mutex_ : shared_mutex
+	-mutex_ : shared_mutex
+	-nodes_ : std::list<NodeInfo>
+	+getNodes() : std::list<NodeInfo>&
+	-lastsend_list_ : std::list<std::tuple<QTime, mac_t, bool>>
+	+addLastSend(QTime lastsend, mac_t lastmac) : void
+	+removeNode(mac_t mac_address) : void
+}
+
+
+class Process_AP {
+	+Process_AP(int& argc, char** argv)
+	+~Process_AP()
+	-window_ : Window_AP
+	-ip_address_ : address
+	-listen_thread_ : std::unique_ptr<ListenThread_AP>
+	-port_ : uint16_t
+}
+
+
+class Process_Node {
+	-~Process_Node()
+	-frontQueue() : DataWarper&
+	-gettime() : QTime
+	-transform_time_ : QTime
+	-thread_receive_ : ThreadReceive_Node*
+	-thread_send_ : ThreadSend_Node*
+	-window_ : Window_Node
+	-address_current_ : address
+	-address_server_ : address
+	+connected_ : bool
+	-isQueueEmpty() : bool
+	-mac_current_ : byte
+	-buffer : char
+	-backoff_time_ : int
+	-getstatus() : int
+	-io_context_ : io_context
+	-queue_ : queue<DataWarper>
+	-opinion_ : reuse_address
+	-queue_lock_ : shared_mutex
+	-status_lock_ : shared_mutex
+	-time_lock_ : shared_mutex
+	-socket_client_ : shared_ptr<socket_t>
+	-Process_Node(int& argc, char** argv) : signals : public :
+	-{static} bufsize : static constexpr size_t
+	-{static} max_thread : static constexpr std::size_t
+	-status_ : status
+	-backoff_counter_ : uint16_t
+	-port_current_ : uint16_t
+	-port_server_ : uint16_t
+	-cleanQueue() : void
+	-popQueue() : void
+	-pushQueue(const DataWarper& data) : void
+	-setstatus(status status) : void
+	-settime(QTime time) : void
+}
+
+
+class ReceiveThread_AP {
+	+ReceiveThread_AP(shared_ptr<socket_t> socket_server, shared_mutex log_mutex, shared_mutex status_mutex, NodeStatus& status, Window_AP& window, QObject* parent)
+	+~ReceiveThread_AP()
+	-status_ : NodeStatus&
+	-window_ : Window_AP&
+	-log_mutex_ : shared_mutex
+	-status_mutex_ : shared_mutex
+	-socket_server_ : shared_ptr<socket_t>
+	#showStatusSignal(const NodeInfo &) : signals : void
+	#appendLogSignal(const QString &) : void
+	#messageBoxSignal(StandardButton (* ) ( QWidget*, const QString&, const QString&, QMessageBox::StandardButtons, QMessageBox::StandardButton ) func, QWidget*, const QString &, const QString &, QMessageBox::StandardButtons, QMessageBox::StandardButton) : void
+	#run() : void
+	-sendACK(byte mac_src, byte mac_dest) : void
+	-sendAnnounce(byte sender, QTime send_time) : void
+	-sendConflict(byte sender1, byte sender2) : void
+	-showStatus(const NodeInfo& nodeinfo) : void
+}
+
+
+class ThreadReceive_Node {
+	+ThreadReceive_Node(Process_Node& node, Window_Node& window, shared_ptr<socket_t> socket_client, io_context io_context, byte mac_current, QObject* parent)
+	+~ThreadReceive_Node()
+	-app_ : Process_Node&
+	-window_ : Window_Node&
+	-mac_current_ : byte
+	-buffer : char
+	-io_context_ : io_context
+	-socket_client_ : shared_ptr<socket_t>
+	+taskend() : signals : void
+	+messageBoxSignal(StandardButton (* ) ( QWidget*, const QString&, const QString&, QMessageBox::StandardButtons, QMessageBox::StandardButton ) func, QWidget*, const QString &, const QString &, QMessageBox::StandardButtons, QMessageBox::StandardButton) : void
+	-receiveHandler(const boost::system::error_code& ec, size_t bytes_transferred) : void
+	#run() : void
+	+setText(const QString &) : void
+}
+
+
+class ThreadSend_Node {
+	+ThreadSend_Node(Window_Node& window, Process_Node& node, shared_ptr<socket_t> socket_client, byte mac_current, QObject* parent)
+	+~ThreadSend_Node()
+	-app_ : Process_Node&
+	-window_ : Window_Node&
+	+getSending() : bool
+	-sending_ : bool
+	-mac_current_ : byte
+	-backoff_time_ : int
+	-sending_lock_ : mutex
+	-socket_client_ : shared_ptr<socket_t>
+	+setText(const QString &) : signals : void
+	-backoff_counter_ : uint16_t
+	+messageBoxSignal(StandardButton (* ) ( QWidget*, const QString&, const QString&, QMessageBox::StandardButtons, QMessageBox::StandardButton ) func, QWidget*, const QString &, const QString &, QMessageBox::StandardButtons, QMessageBox::StandardButton) : void
+	#run() : void
+	+setSending(bool sending) : void
+	+taskend() : void
+}
+
+
+class Window_AP {
+	+Window_AP(QWidget* parent)
+	+~Window_AP()
+	+ui_ : Ui::UI_ap*
+}
+
+
+class Window_Node {
+	+Window_Node(QWidget* parent)
+	+~Window_Node()
+	+ui_ : Ui::UI_node*
+}
+
+
+class ackFrameBodyPROTOBUF_FINAL {
+	+ackFrameBody()
+	+ackFrameBody(const ackFrameBody& from)
+	+ackFrameBody(ackFrameBody&& from)
+	#ackFrameBody(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+	+~ackFrameBody()
+	+GetMetadata() : ::PROTOBUF_NAMESPACE_ID::Metadata {query}
+	+_InternalSerialize(::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) : ::PROTOBUF_NAMESPACE_ID::uint8* {query}
+	+Clear() : PROTOBUF_ATTRIBUTE_REINITIALIZES void
+	+{static} default_instance() : ackFrameBody&
+	+operator=(const ackFrameBody& from) : ackFrameBody&
+	+operator=(ackFrameBody&& from) : ackFrameBody&
+	+New() : ackFrameBody* {query}
+	+New(::PROTOBUF_NAMESPACE_ID::Arena* arena) : ackFrameBody* {query}
+	+{static} internal_default_instance() : ackFrameBody*
+	+IsInitialized() : bool {query}
+	+_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) : char*
+	+{static} GetDescriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} descriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} GetReflection() : const::PROTOBUF_NAMESPACE_ID::Reflection*
+	- : friend struct::TableStruct_DataWarper_2eproto
+	+GetCachedSize() : int {query}
+	-_cached_size_ : mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize
+	+ByteSizeLong() : size_t {query}
+	+{static} kIndexInFileMessages : static constexpr int
+	-GetMetadataStatic() : static::PROTOBUF_NAMESPACE_ID::Metadata
+	-FullMessageName() : static::PROTOBUF_NAMESPACE_ID::StringPiece
+	-{static} ArenaDtor(void* object) : void
+	+CopyFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+CopyFrom(const ackFrameBody& from) : void
+	+{static} InitAsDefaultInstance() : void
+	-InternalSwap(ackFrameBody* other) : void
+	+MergeFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+MergeFrom(const ackFrameBody& from) : void
+	-RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) : void
+	-SetCachedSize(int size) : void {query}
+	-SharedCtor() : void
+	-SharedDtor() : void
+	+Swap(ackFrameBody* other) : void
+	+UnsafeArenaSwap(ackFrameBody* other) : void
+	+swap(ackFrameBody& a, ackFrameBody& b) : void
+}
+
+
+class announceFrameBodyPROTOBUF_FINAL {
+	+announceFrameBody()
+	+announceFrameBody(const announceFrameBody& from)
+	+announceFrameBody(announceFrameBody&& from)
+	#announceFrameBody(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+	+~announceFrameBody()
+	+GetMetadata() : ::PROTOBUF_NAMESPACE_ID::Metadata {query}
+	-_internal_nodesend() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-_internal_sendtime() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	+nodesend() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-nodesend_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+sendtime() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-sendtime_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+_InternalSerialize(::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) : ::PROTOBUF_NAMESPACE_ID::uint8* {query}
+	+Clear() : PROTOBUF_ATTRIBUTE_REINITIALIZES void
+	+{static} default_instance() : announceFrameBody&
+	+operator=(const announceFrameBody& from) : announceFrameBody&
+	+operator=(announceFrameBody&& from) : announceFrameBody&
+	+New() : announceFrameBody* {query}
+	+New(::PROTOBUF_NAMESPACE_ID::Arena* arena) : announceFrameBody* {query}
+	+{static} internal_default_instance() : announceFrameBody*
+	+IsInitialized() : bool {query}
+	+_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) : char*
+	+{static} GetDescriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} descriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} GetReflection() : const::PROTOBUF_NAMESPACE_ID::Reflection*
+	- : friend struct::TableStruct_DataWarper_2eproto
+	+GetCachedSize() : int {query}
+	-_cached_size_ : mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize
+	+ByteSizeLong() : size_t {query}
+	+{static} kIndexInFileMessages : static constexpr int
+	-GetMetadataStatic() : static::PROTOBUF_NAMESPACE_ID::Metadata
+	-FullMessageName() : static::PROTOBUF_NAMESPACE_ID::StringPiece
+	-{static} ArenaDtor(void* object) : void
+	+CopyFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+CopyFrom(const announceFrameBody& from) : void
+	+{static} InitAsDefaultInstance() : void
+	-InternalSwap(announceFrameBody* other) : void
+	+MergeFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+MergeFrom(const announceFrameBody& from) : void
+	-RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) : void
+	-SetCachedSize(int size) : void {query}
+	-SharedCtor() : void
+	-SharedDtor() : void
+	+Swap(announceFrameBody* other) : void
+	+UnsafeArenaSwap(announceFrameBody* other) : void
+	-_internal_set_nodesend(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	-_internal_set_sendtime(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+clear_nodesend() : void
+	+clear_sendtime() : void
+	+set_nodesend(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+set_sendtime(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+swap(announceFrameBody& a, announceFrameBody& b) : void
+}
+
+
+class conflictFrameBodyPROTOBUF_FINAL {
+	+conflictFrameBody()
+	+conflictFrameBody(const conflictFrameBody& from)
+	+conflictFrameBody(conflictFrameBody&& from)
+	#conflictFrameBody(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+	+~conflictFrameBody()
+	+GetMetadata() : ::PROTOBUF_NAMESPACE_ID::Metadata {query}
+	-_internal_nodesend1() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-_internal_nodesend2() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	+nodesend1() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-nodesend1_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+nodesend2() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-nodesend2_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+_InternalSerialize(::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) : ::PROTOBUF_NAMESPACE_ID::uint8* {query}
+	+Clear() : PROTOBUF_ATTRIBUTE_REINITIALIZES void
+	+IsInitialized() : bool {query}
+	+_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) : char*
+	+{static} default_instance() : conflictFrameBody&
+	+operator=(const conflictFrameBody& from) : conflictFrameBody&
+	+operator=(conflictFrameBody&& from) : conflictFrameBody&
+	+New() : conflictFrameBody* {query}
+	+New(::PROTOBUF_NAMESPACE_ID::Arena* arena) : conflictFrameBody* {query}
+	+{static} internal_default_instance() : conflictFrameBody*
+	+{static} GetDescriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} descriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} GetReflection() : const::PROTOBUF_NAMESPACE_ID::Reflection*
+	- : friend struct::TableStruct_DataWarper_2eproto
+	+GetCachedSize() : int {query}
+	-_cached_size_ : mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize
+	+ByteSizeLong() : size_t {query}
+	+{static} kIndexInFileMessages : static constexpr int
+	-GetMetadataStatic() : static::PROTOBUF_NAMESPACE_ID::Metadata
+	-FullMessageName() : static::PROTOBUF_NAMESPACE_ID::StringPiece
+	-{static} ArenaDtor(void* object) : void
+	+CopyFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+CopyFrom(const conflictFrameBody& from) : void
+	+{static} InitAsDefaultInstance() : void
+	-InternalSwap(conflictFrameBody* other) : void
+	+MergeFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+MergeFrom(const conflictFrameBody& from) : void
+	-RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) : void
+	-SetCachedSize(int size) : void {query}
+	-SharedCtor() : void
+	-SharedDtor() : void
+	+Swap(conflictFrameBody* other) : void
+	+UnsafeArenaSwap(conflictFrameBody* other) : void
+	-_internal_set_nodesend1(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	-_internal_set_nodesend2(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+clear_nodesend1() : void
+	+clear_nodesend2() : void
+	+set_nodesend1(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+set_nodesend2(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+swap(conflictFrameBody& a, conflictFrameBody& b) : void
+}
+
+
+class dataFrameBodyPROTOBUF_FINAL {
+	+GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for" " string fields are deprecated and will be removed in a" " future release." ) std::string* unsafe_arena_release_data ()
+	+GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for" " string fields are deprecated and will be removed in a" " future release." ) void unsafe_arena_set_allocated_data ( std::string* data)
+	+dataFrameBody()
+	+dataFrameBody(const dataFrameBody& from)
+	+dataFrameBody(dataFrameBody&& from)
+	#dataFrameBody(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+	+~dataFrameBody()
+	+GetMetadata() : ::PROTOBUF_NAMESPACE_ID::Metadata {query}
+	-data_ : ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr
+	-_internal_length() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-_internal_timelast() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	+length() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-length_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+timelast() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-timelast_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+_InternalSerialize(::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) : ::PROTOBUF_NAMESPACE_ID::uint8* {query}
+	+Clear() : PROTOBUF_ATTRIBUTE_REINITIALIZES void
+	+IsInitialized() : bool {query}
+	+_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) : char*
+	+{static} GetDescriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} descriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} GetReflection() : const::PROTOBUF_NAMESPACE_ID::Reflection*
+	+{static} default_instance() : dataFrameBody&
+	+operator=(const dataFrameBody& from) : dataFrameBody&
+	+operator=(dataFrameBody&& from) : dataFrameBody&
+	+New() : dataFrameBody* {query}
+	+New(::PROTOBUF_NAMESPACE_ID::Arena* arena) : dataFrameBody* {query}
+	+{static} internal_default_instance() : dataFrameBody*
+	- : friend struct::TableStruct_DataWarper_2eproto
+	+GetCachedSize() : int {query}
+	-_cached_size_ : mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize
+	+ByteSizeLong() : size_t {query}
+	+{static} kIndexInFileMessages : static constexpr int
+	-GetMetadataStatic() : static::PROTOBUF_NAMESPACE_ID::Metadata
+	-FullMessageName() : static::PROTOBUF_NAMESPACE_ID::StringPiece
+	-_internal_data() : std::string& {query}
+	+data() : std::string& {query}
+	-_internal_mutable_data() : std::string*
+	+mutable_data() : std::string*
+	+release_data() : std::string*
+	-{static} ArenaDtor(void* object) : void
+	+CopyFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+CopyFrom(const dataFrameBody& from) : void
+	+{static} InitAsDefaultInstance() : void
+	-InternalSwap(dataFrameBody* other) : void
+	+MergeFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+MergeFrom(const dataFrameBody& from) : void
+	-RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) : void
+	-SetCachedSize(int size) : void {query}
+	-SharedCtor() : void
+	-SharedDtor() : void
+	+Swap(dataFrameBody* other) : void
+	+UnsafeArenaSwap(dataFrameBody* other) : void
+	-_internal_set_data(const std::string& value) : void
+	-_internal_set_length(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	-_internal_set_timelast(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+clear_data() : void
+	+clear_length() : void
+	+clear_timelast() : void
+	+set_allocated_data(std::string* data) : void
+	+set_data(const std::string& value) : void
+	+set_data(std::string&& value) : void
+	+set_data(const char* value) : void
+	+set_data(const void* value, size_t size) : void
+	+set_length(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+set_timelast(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+swap(dataFrameBody& a, dataFrameBody& b) : void
+}
+
+
+class headerPROTOBUF_FINAL {
+	+header()
+	+header(const header& from)
+	+header(header&& from)
+	#header(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+	+~header()
+	+GetMetadata() : ::PROTOBUF_NAMESPACE_ID::Metadata {query}
+	-_internal_destmac() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-_internal_srcmac() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	+destmac() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-destmac_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+srcmac() : ::PROTOBUF_NAMESPACE_ID::uint32 {query}
+	-srcmac_ : ::PROTOBUF_NAMESPACE_ID::uint32
+	+_InternalSerialize(::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) : ::PROTOBUF_NAMESPACE_ID::uint8* {query}
+	+Clear() : PROTOBUF_ATTRIBUTE_REINITIALIZES void
+	+IsInitialized() : bool {query}
+	+_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) : char*
+	+{static} GetDescriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} descriptor() : const::PROTOBUF_NAMESPACE_ID::Descriptor*
+	+{static} GetReflection() : const::PROTOBUF_NAMESPACE_ID::Reflection*
+	- : friend struct::TableStruct_DataWarper_2eproto
+	+{static} default_instance() : header&
+	+operator=(const header& from) : header&
+	+operator=(header&& from) : header&
+	+New() : header* {query}
+	+New(::PROTOBUF_NAMESPACE_ID::Arena* arena) : header* {query}
+	+{static} internal_default_instance() : header*
+	+GetCachedSize() : int {query}
+	-_cached_size_ : mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize
+	+ByteSizeLong() : size_t {query}
+	+{static} kIndexInFileMessages : static constexpr int
+	-GetMetadataStatic() : static::PROTOBUF_NAMESPACE_ID::Metadata
+	-FullMessageName() : static::PROTOBUF_NAMESPACE_ID::StringPiece
+	-{static} ArenaDtor(void* object) : void
+	+CopyFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+CopyFrom(const header& from) : void
+	+{static} InitAsDefaultInstance() : void
+	-InternalSwap(header* other) : void
+	+MergeFrom(const::PROTOBUF_NAMESPACE_ID::Message& from) : void
+	+MergeFrom(const header& from) : void
+	-RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) : void
+	-SetCachedSize(int size) : void {query}
+	-SharedCtor() : void
+	-SharedDtor() : void
+	+Swap(header* other) : void
+	+UnsafeArenaSwap(header* other) : void
+	-_internal_set_destmac(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	-_internal_set_srcmac(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+clear_destmac() : void
+	+clear_srcmac() : void
+	+set_destmac(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+set_srcmac(::PROTOBUF_NAMESPACE_ID::uint32 value) : void
+	+swap(header& a, header& b) : void
+}
+
+
+enum DataWarperPROTOBUF_FINAL::BodyCase {
+	BODY_NOT_SET
+	kAckFrameBody
+	kAnnounceFrameBody
+	kConflictFrameBody
+	kDataFrameBody
+}
+
+
+enum DataWarperPROTOBUF_FINAL::empty {
+	kAckFrameBodyFieldNumber
+	kAnnounceFrameBodyFieldNumber
+	kConflictFrameBodyFieldNumber
+	kDataFrameBodyFieldNumber
+	kHeaderFieldNumber
+	kTypeFieldNumber
+}
+
+
+enum announceFrameBodyPROTOBUF_FINAL::empty {
+	kNodeSendFieldNumber
+	kSendTimeFieldNumber
+}
+
+
+enum conflictFrameBodyPROTOBUF_FINAL::empty {
+	kNodeSend1FieldNumber
+	kNodeSend2FieldNumber
+}
+
+
+enum dataFrameBodyPROTOBUF_FINAL::empty {
+	kDataFieldNumber
+	kLengthFieldNumber
+	kTimeLastFieldNumber
+}
+
+
+enum headerPROTOBUF_FINAL::empty {
+	kDestMacFieldNumber
+	kSrcMacFieldNumber
+}
+
+
+enum status {
+	busy
+	conflict
+	free
+}
+
+
+class DataWarperPROTOBUF_FINAL::BodyUnion {
+	+BodyUnion()
+	+ackframebody_ : ::ackFrameBody*
+	+announceframebody_ : ::announceFrameBody*
+	+conflictframebody_ : ::conflictFrameBody*
+	+dataframebody_ : ::dataFrameBody*
+}
+
+
+
+
+
+/' Inheritance relationships '/
+
+
+
+
+/' Aggregation relationships '/
+
+.ListenThread_AP *-- .NodeStatus
+
+
+.ListenThread_AP o-- .ReceiveThread_AP
+
+
+.ListenThread_AP *-- .Window_AP
+
+
+.NodeStatus *-- .NodeInfo
+
+
+.Process_AP *-- .ListenThread_AP
+
+
+.Process_AP *-- .Window_AP
+
+
+.Process_Node o-- .ThreadReceive_Node
+
+
+.Process_Node o-- .ThreadSend_Node
+
+
+.Process_Node *-- .Window_Node
+
+
+.Process_Node *-- .status
+
+
+.ReceiveThread_AP *-- .NodeStatus
+
+
+.ReceiveThread_AP *-- .Window_AP
+
+
+.ThreadReceive_Node *-- .Process_Node
+
+
+.ThreadReceive_Node *-- .Window_Node
+
+
+.ThreadSend_Node *-- .Process_Node
+
+
+.ThreadSend_Node *-- .Window_Node
+
+
+
+
+
+
+/' Nested objects '/
+
+.DataWarperPROTOBUF_FINAL +-- .DataWarperPROTOBUF_FINAL::BodyCase
+
+
+.DataWarperPROTOBUF_FINAL +-- .DataWarperPROTOBUF_FINAL::BodyUnion
+
+
+.DataWarperPROTOBUF_FINAL +-- .DataWarperPROTOBUF_FINAL::empty
+
+
+.announceFrameBodyPROTOBUF_FINAL +-- .announceFrameBodyPROTOBUF_FINAL::empty
+
+
+.conflictFrameBodyPROTOBUF_FINAL +-- .conflictFrameBodyPROTOBUF_FINAL::empty
+
+
+.dataFrameBodyPROTOBUF_FINAL +-- .dataFrameBodyPROTOBUF_FINAL::empty
+
+
+.headerPROTOBUF_FINAL +-- .headerPROTOBUF_FINAL::empty
+
+
+
+
+@enduml

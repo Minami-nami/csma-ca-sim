@@ -1,6 +1,4 @@
 #pragma once
-
-#include "qdatetime.h"
 #include <QTime>
 #include <boost/asio.hpp>
 #include <boost/asio/ip/tcp.hpp>
@@ -23,29 +21,11 @@ public:
     using shared_socket_ptr_t = std::shared_ptr<boost::asio::ip::tcp::socket>;
 
 public:
-    NodeInfo(mac_t mac_address, ip_t ip_address, port_t port, shared_socket_ptr_t socket)
-        : mac_address_(mac_address), ip_address_(ip_address), port_(port), socket_(socket), is_send_(false), time_(){};
-    NodeInfo() = default;
-    NodeInfo(NodeInfo &&node) : mac_address_(node.mac_address_), ip_address_(node.ip_address_), port_(node.port_), socket_(node.socket_), is_send_(node.is_send_), time_(node.time_){};
-    NodeInfo(const NodeInfo &node) : mac_address_(node.mac_address_), ip_address_(node.ip_address_), port_(node.port_), socket_(node.socket_), is_send_(node.is_send_), time_(node.time_){};
-    NodeInfo &operator=(NodeInfo &&node) {
-        mac_address_ = node.mac_address_;
-        ip_address_  = node.ip_address_;
-        port_        = node.port_;
-        socket_      = node.socket_;
-        is_send_     = node.is_send_;
-        time_        = node.time_;
-        return *this;
-    };
-    NodeInfo &operator=(const NodeInfo &node) {
-        mac_address_ = node.mac_address_;
-        ip_address_  = node.ip_address_;
-        port_        = node.port_;
-        socket_      = node.socket_;
-        is_send_     = node.is_send_;
-        time_        = node.time_;
-        return *this;
-    };
+    NodeInfo(mac_t mac_address, ip_t ip_address, port_t port, shared_socket_ptr_t socket);
+    NodeInfo(NodeInfo &&node);
+    NodeInfo(const NodeInfo &node);
+    NodeInfo &operator=(NodeInfo &&node);
+    NodeInfo &operator=(const NodeInfo &node);
 
 private:
     shared_mutex_t mutex_;
@@ -58,53 +38,23 @@ public:
     mac_t        mac_address_;
     socket_ptr_t socket_;
 
-    void setSend(bool is_send) {
-        unique_lock_t lock(mutex_);
-        is_send_ = is_send;
-    };
+    void setSend(bool is_send);
 
-    void setTime(QTime time) {
-        unique_lock_t lock(mutex_);
-        time_ = time;
-    };
+    void setTime(QTime time);
 
-    void setIP(ip_t ip_address) {
-        unique_lock_t lock(mutex_);
-        ip_address_ = ip_address;
-    };
+    void setIP(ip_t ip_address);
 
-    void setPort(port_t port) {
-        unique_lock_t lock(mutex_);
-        port_ = port;
-    };
+    void setPort(port_t port);
 
-    void setMac(mac_t mac_address) {
-        unique_lock_t lock(mutex_);
-        mac_address_ = mac_address;
-    };
+    void setMac(mac_t mac_address);
 
-    bool isSend() {
-        shared_lock_t lock(mutex_);
-        return is_send_;
-    };
+    bool isSend();
 
-    QTime getTime() {
-        shared_lock_t lock(mutex_);
-        return time_;
-    };
+    QTime getTime();
 
-    ip_t getIP() {
-        shared_lock_t lock(mutex_);
-        return ip_address_;
-    };
+    ip_t getIP();
 
-    port_t getPort() {
-        shared_lock_t lock(mutex_);
-        return port_;
-    };
+    port_t getPort();
 
-    mac_t getMac() {
-        shared_lock_t lock(mutex_);
-        return mac_address_;
-    };
+    mac_t getMac();
 };

@@ -1,4 +1,5 @@
 add_rules("mode.debug", "mode.release")
+add_cxflags("-std=c++20")
 
 target("ap")
     add_rules("qt.widgetapp")
