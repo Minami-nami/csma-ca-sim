@@ -33,7 +33,7 @@ void ReceiveThread_AP::run() {
         if (ec) {
             if (ec == boost::system::errc::bad_file_descriptor) return;
             if (ec == boost::asio::error::eof || ec == boost::asio::error::connection_reset) {
-                emit appendLogSignal(QString("与 [%1, %2]断开连接. [%3]")
+                emit appendLogSignal(QString(tr("与 [%1, %2]断开连接. [%3]"))
                                          .arg(socket_server_->remote_endpoint().address().to_string().c_str())
                                          .arg(socket_server_->remote_endpoint().port())
                                          .arg(QTime::currentTime().toString("hh:mm:ss")));
@@ -50,7 +50,7 @@ void ReceiveThread_AP::run() {
         auto  client_endpoint = socket_server_->remote_endpoint();
         mac_t mac_conflict;
         mac_current_ = mac_src;
-        emit appendLogSignal(QString("收到 %1 的数据帧, 内容为: %2. [%3]")
+        emit appendLogSignal(QString(tr("收到 %1 的数据帧, 内容为: %2. [%3]"))
                                  .arg(static_cast<char>(mac_src))
                                  .arg(QString::fromStdString(warpped_data.dataframebody().data()))
                                  .arg(QTime::currentTime().toString("hh:mm:ss")));
@@ -79,7 +79,7 @@ void ReceiveThread_AP::run() {
             if (send_conflict) {
                 sendConflict(mac_src, mac_conflict);
                 emit appendLogSignal(
-                    QString("%1 与 %2 发生冲突, 已广播冲突信息. [%3]").arg(static_cast<char>(mac_src)).arg(static_cast<char>(mac_conflict)).arg(QTime::currentTime().toString("hh:mm:ss")));
+                    QString(tr("%1 与 %2 发生冲突, 已广播冲突信息. [%3]")).arg(static_cast<char>(mac_src)).arg(static_cast<char>(mac_conflict)).arg(QTime::currentTime().toString("hh:mm:ss")));
             }
         }
         else {  // 信道空闲
@@ -88,7 +88,8 @@ void ReceiveThread_AP::run() {
 
             // 通告有节点在发送
             sendAnnounce(mac_src, receive_time);
-            emit appendLogSignal(QString("广播 %1 正在发送, 接收时间 %2. [%3]").arg(static_cast<char>(mac_src)).arg(receive_time.toString("hh:mm:ss")).arg(QTime::currentTime().toString("hh:mm:ss")));
+            emit appendLogSignal(
+                QString(tr("广播 %1 正在发送, 接收时间 %2. [%3]")).arg(static_cast<char>(mac_src)).arg(receive_time.toString("hh:mm:ss")).arg(QTime::currentTime().toString("hh:mm:ss")));
             while (1) {
                 // 等待0.1s
                 std::this_thread::sleep_for(std::chrono::milliseconds(100));
@@ -103,7 +104,7 @@ void ReceiveThread_AP::run() {
                     if (send_conflict) {
                         sendConflict(mac_src, mac_conflict);
                         emit appendLogSignal(
-                            QString("%1 与 %2 发生冲突, 已广播冲突信息. [%3]").arg(static_cast<char>(mac_src)).arg(static_cast<char>(mac_conflict)).arg(QTime::currentTime().toString("hh:mm:ss")));
+                            QString(tr("%1 与 %2 发生冲突, 已广播冲突信息. [%3]")).arg(static_cast<char>(mac_src)).arg(static_cast<char>(mac_conflict)).arg(QTime::currentTime().toString("hh:mm:ss")));
                     }
 
                     break;
@@ -112,7 +113,7 @@ void ReceiveThread_AP::run() {
                     if ((int)receive_time.msecsTo(QTime::currentTime()) >= 8000) {  // 已到8s
                         // 向发送者反馈ACK
                         sendACK(mac_src, mac_dest);
-                        emit appendLogSignal(QString("已向 %1 发送ACK. [%2]").arg(static_cast<char>(mac_src)).arg(QTime::currentTime().toString("hh:mm:ss")));
+                        emit appendLogSignal(QString(tr("已向 %1 发送ACK. [%2]")).arg(static_cast<char>(mac_src)).arg(QTime::currentTime().toString("hh:mm:ss")));
                         nodeinfo.setSend(false);
                         nodeinfo.setTime(QTime());
                         emit showStatusSignal(nodeinfo);

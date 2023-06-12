@@ -6,7 +6,6 @@
 #include <cstdint>
 #include <iterator>
 #include <mutex>
-#include <pstl/glue_algorithm_defs.h>
 #include <tuple>
 #include <utility>
 
