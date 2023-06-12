@@ -2,9 +2,9 @@
 
 ## requirement
 
-- qt >= 6.0
-- boost
-- protobuf protoc >= 3.0
+- qt 6.5
+- boost 1.74.0
+- protobuf protoc 3.12.4
 - xmake
 
 ## build
